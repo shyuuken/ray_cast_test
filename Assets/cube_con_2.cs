@@ -18,6 +18,14 @@ public class cube_con_2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //メインカメラ上で　カーソルのあった場所にRayを飛ばす
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            //Rayが当たるオブジェクトがあった場合はそのオブジェクト名をログに表示
+            Debug.Log(hit.collider.gameObject.name);
+        }
     }
 }
